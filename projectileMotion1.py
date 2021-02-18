@@ -36,7 +36,7 @@ while (inFlight):
     x, y, v_x, v_y = update(x, y, v_x, v_y, a_x, a_y, dt) 
     t += dt
     if (y >= 0):
-        outFile.write(str(t) + " " + str(x) + " " + str(y) + " " + str(v_x) + " " + str(v_y) + " " + str(a_x) + " " + str(a_y) + "\n")
+        outFile.write(str(t) + " " + str(x) + " " + str(y) + " " + "0" + " " + str(v_x) + " " + str(v_y) + " " + "0" + " " + str(a_x) + " " + str(a_y) + " " + "0" +"\n")
         if (y > y_max):
             y_max = y
     else:
