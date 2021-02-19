@@ -14,11 +14,12 @@ def update(x, y, v_x, v_y, a_x, a_y, dt):
     v_y = v_y + a_y*dt
     return x, y, v_x, v_y #updates position & velocity
 
-v_0 = float(input("What is the magnitude of the initial velocity?: ")) #in m/s
-theta = float(input("What is the launch angle in degrees?: ")) #in degrees
-dt = float(input("What is the size of the time step?: "))
+v_0 = float(input("What is the magnitude of the initial velocity?: ")) #80.5 in m/s
+theta = float(input("What is the latitude of your location?: ")) #37.4 in degrees
+dt = float(input("What is the size of the time step?: ")) #0.000002 s
 m = float(input("What is the projectile mass?: ")) # 0.04593 in kg
 C = float(input("What is the drag coefficient?: ")) # 4*10^-4 #in kg/m
+theta = 90 - l
 
 v_x = v_0*math.cos(theta*math.pi/180.0)
 v_y = v_0*math.sin(theta*math.pi/180.0)

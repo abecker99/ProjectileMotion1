@@ -6,9 +6,6 @@ w = 0.0000727 #earth rotational speed rad/s
 
 def acceleration(v_x, v_y, v_z, C, m):
     a_x = -C*v_x*math.sqrt(v_x*v_x + v_y*v_y)/m - 2*v_z*w_y
-    #coriolisi 2*-vz*w_y
-    #j 2*vz*w_x
-    #k 2*(v_x*w_y - v_y*w_x)
     a_y = -g - C*v_y*math.sqrt(v_x*v_x + v_y*v_y)/m + 2*v_z*w_x
     a_z = 2*(v_x*w_y - v_y*w_x)
     return a_x, a_y, a_z # computes acceleration w/ gravity and drag force
@@ -22,9 +19,9 @@ def update(x, y, z, v_x, v_y, v_z, a_x, a_y, a_z, dt):
     v_z = v_z*dt + a_z*dt
     return x, y, z, v_x, v_y, v_z #updates position & velocity
 
-v_0 = float(input("What is the magnitude of the initial velocity?: ")) #in m/s
-l = float(input("What is the latitude of your location?: ")) #in degrees
-dt = float(input("What is the size of the time step?: "))
+v_0 = float(input("What is the magnitude of the initial velocity?: ")) #80.5 in m/s
+l = float(input("What is the latitude of your location?: ")) #37.4 in degrees
+dt = float(input("What is the size of the time step?: ")) #0.000002 s
 m = float(input("What is the projectile mass?: ")) # 0.04593 in kg
 C = float(input("What is the drag coefficient?: ")) # 4*10^-4 #in kg/m
 theta = 90 - l
@@ -37,10 +34,10 @@ v_z = v_0
 
 outFile = open("projectileCoriolisData.txt", "w")
 
-t = 0.0
+t = 0.0 #in s
 y = 0.0 #in m
 x = 0.0 #in m
-z = 0.0
+z = 0.0 #in m
 y_max = 0.0
 inFlight = True
 
